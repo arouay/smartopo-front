@@ -1,0 +1,87 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title"><strong style="text-transform: uppercase;">Nouveau employé</strong></h4>
+                        <p class="card-category">Veuillez remplir tous les champs</p>
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="processForm()">
+                            <div class="row">
+                                <div class="col-md-3">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="CIN" name="cin" [(ngModel)]="employe.cin">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-5">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Nom" name="nom" [(ngModel)]="employe.nom">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Prenom"  name="prenom" [(ngModel)]="employe.prenom">
+                                    </mat-form-field>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Fonction" type="text" name="fonction" [(ngModel)]="employe.fonction">
+                                    </mat-form-field>
+                                  </div>
+                                
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Date de naissance" type="date" name="date_naissance" [(ngModel)]="employe.date_naissance">
+                                  </mat-form-field>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Années d'expérience" type="number" name="annees_experiences" [(ngModel)]="employe.annees_experiences">
+                                    </mat-form-field>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Date d'embauche" type="date" name="date_embauche" [(ngModel)]="employe.date_embauche">
+                                    </mat-form-field>
+                                </div> 
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="E-mail" type="email" name="email" [(ngModel)]="employe.email">
+                                    </mat-form-field>
+                                </div>
+                              
+                                <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Adresse" type="text" name="adresse" [(ngModel)]="employe.adresse">
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Numéro de téléphone" type="text" name="numero_telephone" [(ngModel)]="employe.numero_telephone">
+                                  </mat-form-field>
+                                </div>
+                                
+                            </div>
+                            
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Valider</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  
