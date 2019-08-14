@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-typography',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TypographyComponent implements OnInit {
   num:number = 30;
-  constructor() { }
+  constructor(private _router:Router) { }
 
   ngOnInit() {
   }
 
+  newProjet(){
+    this._router.navigate(['formeprojet']);
+  }  
 }

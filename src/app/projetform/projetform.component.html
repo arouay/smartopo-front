@@ -1,0 +1,75 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title"><strong style="text-transform: uppercase;">Nouveau projet</strong></h4>
+                        <p class="card-category">Veuillez remplir tous les champs</p>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-3">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Titre foncier" name="titre_foncier" >
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-5">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Intitulé" name="intitule" >
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Durée de réalisation éstimée (en jours)" type="number" name="duree_realisation_estimee" >
+                                    </mat-form-field>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Date de commancement" type="date" name="date_commencement" >
+                                    </mat-form-field>
+                                  </div>
+                                
+                                <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Montant éstimé" type="number" name="montant_estime" >
+                                  </mat-form-field>
+                                </div>
+                                
+                            </div>
+                            <div>
+                            <br>
+                            <div class="form-group">
+                                <label>Type du projet</label>&nbsp;&nbsp;&nbsp;
+                                <a style="cursor:pointer;" (click)="newType()"><i class="material-icons" style="font-size:20px">create</i><i><strong>Ajouter un type</strong></i></a>
+                                <select class="form-control">
+                                  <option value="CSharp">C#</option>
+                                  <option value="CPP">C++</option>
+                                  <option value="XML">XML</option>                                 
+                                </select>                                
+                              </div>
+                              <div class="form-group">
+                                  <label>Client</label>&nbsp;&nbsp;&nbsp;
+                                  <a style="cursor:pointer;" (click)="newClient()"><i class="material-icons" style="font-size:20px">create</i><i><strong>Ajouter un client</strong></i></a>
+                                  <select class="form-control">
+                                    <option value="CSharp">Mr: ALAOUI Mohamed</option>
+                                    <option value="CPP">Mr: CHRAIBI jalil</option>
+                                    <option value="XML">Mr: CRISTIANO Ronaldo</option>                                 
+                                  </select>                                  
+                                </div>
+                              </div>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Valider</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  

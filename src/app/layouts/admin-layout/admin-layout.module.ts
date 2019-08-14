@@ -22,6 +22,7 @@ import {
   MatSelectModule
 } from '@angular/material';
 import { EmployeformComponent } from 'app/employeform/employeform.component';
+import { ProjetformComponent } from 'app/projetform/projetform.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -45,6 +46,7 @@ import { EmployeformComponent } from 'app/employeform/employeform.component';
     UpgradeComponent,
     ListeemployesComponent,
     EmployeformComponent,
+    ProjetformComponent
   ]
 })
 

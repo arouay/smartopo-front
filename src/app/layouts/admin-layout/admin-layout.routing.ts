@@ -10,6 +10,7 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ListeemployesComponent } from '../../listeemployes/listeemployes.component';
 import { EmployeformComponent } from 'app/employeform/employeform.component';
+import { ProjetformComponent } from 'app/projetform/projetform.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -63,5 +64,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'listeemployes', component: ListeemployesComponent},
-    { path: 'formemploye', component: EmployeformComponent}
+    { path: 'formemploye', component: EmployeformComponent},
+    { path: 'formeprojet', component: ProjetformComponent}
 ];
