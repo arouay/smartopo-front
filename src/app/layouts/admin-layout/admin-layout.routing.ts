@@ -11,6 +11,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ListeemployesComponent } from '../../listeemployes/listeemployes.component';
 import { EmployeformComponent } from 'app/employeform/employeform.component';
 import { ProjetformComponent } from 'app/projetform/projetform.component';
+import { TypeprojetComponent } from 'app/typeprojet/typeprojet.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -65,5 +66,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'listeemployes', component: ListeemployesComponent},
     { path: 'formemploye', component: EmployeformComponent},
-    { path: 'formeprojet', component: ProjetformComponent}
+    { path: 'formeprojet', component: ProjetformComponent},
+    { path: 'newTypeProjet', component: TypeprojetComponent}
 ];

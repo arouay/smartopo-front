@@ -45,20 +45,16 @@
                             <br>
                             <div class="form-group">
                                 <label>Type du projet</label>&nbsp;&nbsp;&nbsp;
-                                <a style="cursor:pointer;" (click)="newType()"><i class="material-icons" style="font-size:20px">create</i><i><strong>Ajouter un type</strong></i></a>
+                                <a style="cursor:pointer;" (click)="newTypeProjet()"><i class="material-icons" style="font-size:20px">create</i><i><strong>Ajouter un type</strong></i></a>
                                 <select class="form-control">
-                                  <option value="CSharp">C#</option>
-                                  <option value="CPP">C++</option>
-                                  <option value="XML">XML</option>                                 
+                                  <option *ngFor='let type of types' [value]="type.id">{{type.designation}}</option>                                                                 
                                 </select>                                
                               </div>
                               <div class="form-group">
                                   <label>Client</label>&nbsp;&nbsp;&nbsp;
                                   <a style="cursor:pointer;" (click)="newClient()"><i class="material-icons" style="font-size:20px">create</i><i><strong>Ajouter un client</strong></i></a>
                                   <select class="form-control">
-                                    <option value="CSharp">Mr: ALAOUI Mohamed</option>
-                                    <option value="CPP">Mr: CHRAIBI jalil</option>
-                                    <option value="XML">Mr: CRISTIANO Ronaldo</option>                                 
+                                    <option *ngFor='let client of clients' [value]="client.id">Nom: {{client.nom}} - Ville: {{client.ville}}</option>                                                                    
                                   </select>                                  
                                 </div>
                               </div>

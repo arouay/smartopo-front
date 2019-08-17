@@ -1,4 +1,4 @@
 export class TypeProjet{
-    in:number;
+    id:number;
     designation:string;
 }
