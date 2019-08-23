@@ -33,12 +33,12 @@ export class ClientService {
     return this._http.get(this.baseUrl+'/clients/all',this.options).map((response:Response)=>response.json()).catch(this.errorHandler);
   }
   createClientParticulier(particulier:Particulier){
-
+    return this._http.post(this.baseUrl+'/particuliers/new', JSON.stringify(particulier), this.options).map((response:Response)=>response.json()).catch(this.errorHandler);
   }
   createClientSociete(societe:Societe){
-
+    return this._http.post(this.baseUrl+'/societes/new', JSON.stringify(societe), this.options).map((response:Response)=>response.json()).catch(this.errorHandler);
   }
   createClientPublicassociation(public_association:Public_association){
-
+    return this._http.post(this.baseUrl+'/phases_associations/new', JSON.stringify(public_association), this.options).map((response:Response)=>response.json()).catch(this.errorHandler);
   }
 }

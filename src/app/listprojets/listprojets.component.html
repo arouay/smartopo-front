@@ -1,0 +1,69 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title "><a (click)="newEmploye()" style="cursor:pointer"><i class="material-icons" style="font-size:40px">add_circle_outline</i></a></h4>
+                      <p class="card-category"> La liste de tous les projets</p>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class=" text-primary">
+                                  <th>
+                                      Titre foncier
+                                  </th>
+                                  <th>
+                                      Date commancement
+                                  </th>
+                                  <th>
+                                      Montant éstimé
+                                  </th>                                    
+                                  <th></th>                                  
+                                  <th></th>
+                                </thead>
+                              <tbody>
+                                <tr>
+                                  <td>abcd12547</td>
+                                  <td>11/12/2018</td>
+                                  <td>15000 DH</td>
+                                  <td class="td-actions text-right">
+                                      <button mat-raised-button type="button" (click)="showDetails(projet)" matTooltip="Afficher les details" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                          <i class="material-icons">edit</i>
+                                      </button>                                            
+                                  </td>                                   
+                                </tr>
+                                  <!--<tr *ngFor="let employe of employes">
+                                      <td>{{ employe.cin }}</td> 
+                                      <td>{{ employe.nom }}</td> 
+                                      <td>{{ employe.prenom }}</td> 
+                                      <td>{{ employe.fonction }}</td> 
+                                      <td matTooltip="Date de naissance : {{ formatDate(employe.date_naissance) }}">{{  getAge(employe.date_naissance)}}</td> 
+                                      <td>{{ employe.annees_experiences }}</td> 
+                                      <td>{{ formatDate(employe.date_embauche) }}</td> 
+                                      <td>{{ employe.email }}</td> 
+                                      <td>{{ employe.adresse }}</td> 
+                                      <td>{{ employe.numero_telephone }}</td>                                        
+                                      <td class="td-actions text-right">
+                                          <button mat-raised-button type="button" (click)="updateEmploye(employe)" matTooltip="Modifier" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                              <i class="material-icons">edit</i>
+                                          </button>                                            
+                                      </td>
+                                      <td>
+                                          <button mat-raised-button type="button" (click)="deleteEmploye(employe)" matTooltip="Supprimer" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                              <i class="material-icons">delete_sweep</i>
+                                          </button>                                            
+                                      </td>                                                                              
+                                  </tr> -->                                   
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+</div>
+

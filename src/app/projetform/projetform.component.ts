@@ -31,7 +31,7 @@ export class ProjetformComponent implements OnInit {
     });
   }
   newClient(){
-    
+    this._router.navigate(['newClient']);
   }
   newTypeProjet(){
     this._router.navigate(['newTypeProjet']);

@@ -12,8 +12,4 @@ export class TypographyComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  newProjet(){
-    this._router.navigate(['formeprojet']);
-  }  
 }

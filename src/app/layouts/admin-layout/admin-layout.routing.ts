@@ -12,6 +12,8 @@ import { ListeemployesComponent } from '../../listeemployes/listeemployes.compon
 import { EmployeformComponent } from 'app/employeform/employeform.component';
 import { ProjetformComponent } from 'app/projetform/projetform.component';
 import { TypeprojetComponent } from 'app/typeprojet/typeprojet.component';
+import { ClientformComponent } from 'app/clientform/clientform.component';
+import { ListprojetsComponent } from 'app/listprojets/listprojets.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -67,5 +69,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'listeemployes', component: ListeemployesComponent},
     { path: 'formemploye', component: EmployeformComponent},
     { path: 'formeprojet', component: ProjetformComponent},
-    { path: 'newTypeProjet', component: TypeprojetComponent}
+    { path: 'newTypeProjet', component: TypeprojetComponent},
+    { path: 'newClient', component: ClientformComponent},
+    { path: 'listprojets', component:ListprojetsComponent}
 ];

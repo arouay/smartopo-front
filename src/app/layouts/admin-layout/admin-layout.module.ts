@@ -24,6 +24,8 @@ import {
 import { EmployeformComponent } from 'app/employeform/employeform.component';
 import { ProjetformComponent } from 'app/projetform/projetform.component';
 import { TypeprojetComponent } from 'app/typeprojet/typeprojet.component';
+import { ClientformComponent } from 'app/clientform/clientform.component';
+import { ListprojetsComponent } from 'app/listprojets/listprojets.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -48,7 +50,9 @@ import { TypeprojetComponent } from 'app/typeprojet/typeprojet.component';
     ListeemployesComponent,
     EmployeformComponent,
     ProjetformComponent,
-    TypeprojetComponent
+    TypeprojetComponent,
+    ClientformComponent,
+    ListprojetsComponent
   ]
 })
 
