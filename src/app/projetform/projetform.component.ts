@@ -4,6 +4,8 @@ import { TypeprojetService } from 'app/shared_services/typeprojet.service';
 import { TypeProjet } from 'app/models/typeprojet';
 import { Client } from 'app/models/client';
 import { ClientService } from 'app/shared_services/client.service';
+import { Projet } from 'app/models/projet';
+import { ProjetService } from 'app/shared_services/projet.service';
 
 @Component({
   selector: 'app-projetform',
@@ -13,10 +15,14 @@ import { ClientService } from 'app/shared_services/client.service';
 export class ProjetformComponent implements OnInit {
   private types:TypeProjet[];
   private clients:Client[];
+  private projet:Projet;
 
-  constructor(private _router:Router,private _typeprojetService:TypeprojetService,private _clientService:ClientService) { }
+
+  private typetmp:TypeProjet;
+  constructor(private _router:Router,private _typeprojetService:TypeprojetService,private _clientService:ClientService, private _projetService:ProjetService) { }
 
   ngOnInit() {
+    this.projet = new Projet();
     this._typeprojetService.getTypes().subscribe((types)=>{
       console.log(types);
       this.types = types;
@@ -30,10 +36,33 @@ export class ProjetformComponent implements OnInit {
       console.log(error);
     });
   }
+  private id:any;
+  processForm(){  
+    this.projet.client = null;//null pour le moment
+    this.id = this.projet.typeProjet;
+    //find type
+    this.types.forEach(element => {
+      if(this.id == element.id)
+        this.typetmp = element;
+    });
+    //affect type to projet
+    this.projet.typeProjet = {
+      "id":this.typetmp.id,
+      "designation":this.typetmp.designation
+    };
+    //send projet
+    this._projetService.createProjet(this.projet).subscribe((response)=>{  
+      console.log(response);
+      this._router.navigate(['listprojets']);
+    },(error)=>{
+      console.log(error);
+    });
+  }
   newClient(){
     this._router.navigate(['newClient']);
   }
   newTypeProjet(){
     this._router.navigate(['newTypeProjet']);
   }
+  
 }

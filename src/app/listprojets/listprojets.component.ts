@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Projet } from 'app/models/projet';
+import { ProjetService } from 'app/shared_services/projet.service';
 
 @Component({
   selector: 'app-listprojets',
@@ -7,12 +9,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./listprojets.component.scss']
 })
 export class ListprojetsComponent implements OnInit {
-
-  constructor(private _router:Router) { }
+  private projets:Projet[];
+  constructor(private _router:Router, private _projetService:ProjetService) { }
 
   ngOnInit() {
+    this._projetService.getProjets().subscribe((projets)=>{
+      console.log(projets);
+      this.projets = projets;
+    }, (error)=>{
+      console.log(error);
+    })
   }
-  showDetails(){
+  showDetails(projet:Projet){
+    this._projetService.setter(projet);
     this._router.navigate(['Allprojects']);
   }
   newEmploye(){

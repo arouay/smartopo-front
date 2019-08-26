@@ -2,13 +2,13 @@
   <div class="container-fluid">    
     <div class="card">
             <div class="card-header card-header-danger">
-                <h4 class="card-title">intitule du projet</h4>
-                <p class="card-category">Adresse du projet ville ...</p>
+                <h4 class="card-title"><strong>{{projet.intitule}}</strong></h4>
+                <p class="card-category"><strong>Adresse du projet ville ...</strong></p>
             </div>
             <div class="card-body">
                 <div id="typography">
                     <div class="card-title">
-                        <h2>Titre foncier : abcd12547</h2>
+                        <h2>Titre foncier : {{projet.titre_foncier}}</h2>
                     </div>
                     <hr>
                     <div>
@@ -27,12 +27,12 @@
                         <div class="row">
                             <div class="col-md-6">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Client" value="arouay abdelalim" disabled>
+                                  <input matInput placeholder="Client" value="{{projet.client?.nom}}" disabled>
                                 </mat-form-field>
                             </div>
                             <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Type du projet" value="un type random" disabled>
+                                    <input matInput placeholder="Type du projet" value="{{projet.typeProjet?.designation}}" disabled>
                                   </mat-form-field>
                             </div>                                  
                         </div>
@@ -47,19 +47,19 @@
                             <div class="row">
                                     <div class="col-md-6">
                                       <mat-form-field class="example-full-width">
-                                          <input matInput placeholder="Duree de realisation estimée" value="1 mois et 15 j" disabled>
+                                          <input matInput placeholder="Duree de realisation estimée" value="{{projet.duree_realisation_estimee}} (en jours)" disabled>
                                         </mat-form-field>
                                     </div>
                                     <div class="col-md-6">
                                             <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="Date commancement" value="11/12/2018" disabled>
+                                                <input matInput placeholder="Date commancement" value="{{projet.date_commencement}}" disabled>
                                               </mat-form-field>
                                         </div>                                 
                                 </div>
                                 <div class="row">
                                         <div class="col-md-6">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Montant estimé" value="15000 DH" disabled>
+                                                    <input matInput placeholder="Montant estimé" value="{{projet.montant_estime}} DH" disabled>
                                                   </mat-form-field>
                                             </div>  
                                         <div class="col-md-6">

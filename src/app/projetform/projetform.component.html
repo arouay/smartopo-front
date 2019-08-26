@@ -8,35 +8,34 @@
                         <p class="card-category">Veuillez remplir tous les champs</p>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form (ngSubmit)="processForm()">
                             <div class="row">
                                 <div class="col-md-3">
                                   <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Titre foncier" name="titre_foncier" >
+                                      <input matInput placeholder="Titre foncier" name="titre_foncier" [(ngModel)]="projet.titre_foncier">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-5">
                                     <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Intitulé" name="intitule" >
+                                      <input matInput placeholder="Intitulé" name="intitule" [(ngModel)]="projet.intitule">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Durée de réalisation éstimée (en jours)" type="number" name="duree_realisation_estimee" >
+                                      <input matInput placeholder="Durée de réalisation éstimée (en jours)" type="number" name="duree_realisation_estimee" [(ngModel)]="projet.duree_realisation_estimee">
                                     </mat-form-field>
-                                </div>
-                                
+                                </div>                                
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <mat-form-field class="example-full-width">
-                                      <input matInput placeholder="Date de commancement" type="date" name="date_commencement" >
+                                      <input matInput placeholder="Date de commancement" type="date" name="date_commencement" [(ngModel)]="projet.date_commencement" (ngModelChange)="projet.date_commencement = $event">
                                     </mat-form-field>
                                   </div>
                                 
                                 <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Montant éstimé" type="number" name="montant_estime" >
+                                    <input matInput placeholder="Montant éstimé" type="number" name="montant_estime" [(ngModel)]="projet.montant_estime">
                                   </mat-form-field>
                                 </div>
                                 
@@ -46,14 +45,14 @@
                             <div class="form-group">
                                 <label>Type du projet</label>&nbsp;&nbsp;&nbsp;
                                 <a style="cursor:pointer;" (click)="newTypeProjet()"><i class="material-icons" style="font-size:20px">create</i><i><strong>Ajouter un type</strong></i></a>
-                                <select class="form-control">
+                                <select class="form-control" name="type" [(ngModel)]="projet.typeProjet">
                                   <option *ngFor='let type of types' [value]="type.id">{{type.designation}}</option>                                                                 
                                 </select>                                
                               </div>
                               <div class="form-group">
                                   <label>Client</label>&nbsp;&nbsp;&nbsp;
                                   <a style="cursor:pointer;" (click)="newClient()"><i class="material-icons" style="font-size:20px">create</i><i><strong>Ajouter un client</strong></i></a>
-                                  <select class="form-control">
+                                  <select class="form-control" name="client" [(ngModel)]="projet.client">
                                     <option *ngFor='let client of clients' [value]="client.id">Nom: {{client.nom}} - Ville: {{client.ville}}</option>                                                                    
                                   </select>                                  
                                 </div>

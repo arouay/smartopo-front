@@ -24,10 +24,10 @@
                                   <th></th>
                                 </thead>
                               <tbody>
-                                <tr>
-                                  <td>abcd12547</td>
-                                  <td>11/12/2018</td>
-                                  <td>15000 DH</td>
+                                <tr *ngFor="let projet of projets">
+                                  <td>{{projet.titre_foncier}}</td>
+                                  <td>{{projet.date_commencement}}</td>
+                                  <td>{{projet.montant_estime}}</td>
                                   <td class="td-actions text-right">
                                       <button mat-raised-button type="button" (click)="showDetails(projet)" matTooltip="Afficher les details" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
                                           <i class="material-icons">edit</i>
