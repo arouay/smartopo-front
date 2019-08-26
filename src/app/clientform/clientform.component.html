@@ -12,12 +12,12 @@
                           <div class="row">
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Nom" name="nom" [(ngModel)]="particulier.nom">
+                                    <input matInput placeholder="Nom" name="nom" [(ngModel)]="client.nom">
                                   </mat-form-field>
                               </div>                                
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Ville" name="ville" [(ngModel)]="particulier.ville">
+                                    <input matInput placeholder="Ville" name="ville" [(ngModel)]="client.ville">
                                   </mat-form-field>
                               </div> 
                           </div>
@@ -38,19 +38,19 @@
                           <div class="row" [style.display]="isParticulierVisible ? 'block' : 'none'">
                             <div class="col-md-6">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="CIN" name="cin" [(ngModel)]="particulier.cin">
+                                  <input matInput placeholder="CIN" name="cin" [(ngModel)]="client.cin">
                                 </mat-form-field>
                             </div>                                
                             <div class="col-md-6">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Prenom" name="prenom" [(ngModel)]="particulier.prenom">
+                                  <input matInput placeholder="Prenom" name="prenom" [(ngModel)]="client.prenom">
                                 </mat-form-field>
                             </div> 
                           </div>
                           <div class="row" [style.display]="isSocieteVisible ? 'block' : 'none'">
                             <div class="col-md-6">
                               <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="ICE" name="ice" [(ngModel)]="societe.ice">
+                                  <input matInput placeholder="ICE" name="ice" [(ngModel)]="client.ice">
                                 </mat-form-field>
                             </div>                                                             
                           </div>

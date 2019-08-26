@@ -17,7 +17,7 @@ export class ProjetformComponent implements OnInit {
   private clients:Client[];
   private projet:Projet;
 
-
+  private clienttmp:Client;
   private typetmp:TypeProjet;
   constructor(private _router:Router,private _typeprojetService:TypeprojetService,private _clientService:ClientService, private _projetService:ProjetService) { }
 
@@ -37,20 +37,25 @@ export class ProjetformComponent implements OnInit {
     });
   }
   private id:any;
-  processForm(){  
-    this.projet.client = null;//null pour le moment
+  processForm(){ 
+    //------preparing client------- 
+    this.id = this.projet.client;
+    //find client
+    this.clienttmp = this.clients.find(i=>i.id == this.id);
+    //affect client to projet
+    this.projet.client = this.clienttmp;
+
+    //-----preparing type---------
     this.id = this.projet.typeProjet;
     //find type
-    this.types.forEach(element => {
-      if(this.id == element.id)
-        this.typetmp = element;
-    });
+    this.typetmp = this.types.find(i=>i.id == this.id);
     //affect type to projet
     this.projet.typeProjet = {
       "id":this.typetmp.id,
       "designation":this.typetmp.designation
     };
-    //send projet
+    
+    //-------send projet-------
     this._projetService.createProjet(this.projet).subscribe((response)=>{  
       console.log(response);
       this._router.navigate(['listprojets']);
