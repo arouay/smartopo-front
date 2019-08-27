@@ -22,7 +22,12 @@ export class ProjetformComponent implements OnInit {
   constructor(private _router:Router,private _typeprojetService:TypeprojetService,private _clientService:ClientService, private _projetService:ProjetService) { }
 
   ngOnInit() {
-    this.projet = new Projet();
+    if(this._projetService.getter() == null){
+      this.projet = new Projet();
+    }      
+    else{
+      this.projet = this._projetService.getter();
+    }
     this._typeprojetService.getTypes().subscribe((types)=>{
       console.log(types);
       this.types = types;
@@ -38,30 +43,42 @@ export class ProjetformComponent implements OnInit {
   }
   private id:any;
   processForm(){ 
-    //------preparing client------- 
-    this.id = this.projet.client;
-    //find client
-    this.clienttmp = this.clients.find(i=>i.id == this.id);
-    //affect client to projet
-    this.projet.client = this.clienttmp;
+    if(this.projet.id==undefined){
+      //------preparing client------- 
+      this.id = this.projet.client;
+      //find client
+      this.clienttmp = this.clients.find(i=>i.id == this.id);
+      //affect client to projet
+      this.projet.client = this.clienttmp;
 
-    //-----preparing type---------
-    this.id = this.projet.typeProjet;
-    //find type
-    this.typetmp = this.types.find(i=>i.id == this.id);
-    //affect type to projet
-    this.projet.typeProjet = {
-      "id":this.typetmp.id,
-      "designation":this.typetmp.designation
-    };
+      //-----preparing type---------
+      this.id = this.projet.typeProjet;
+      //find type
+      this.typetmp = this.types.find(i=>i.id == this.id);
+      //affect type to projet
+      this.projet.typeProjet = {
+        "id":this.typetmp.id,
+        "designation":this.typetmp.designation
+      };
+
+      //-------send projet-------
+      this._projetService.createProjet(this.projet).subscribe((response)=>{  
+        console.log(response);
+        this._router.navigate(['listprojets']);
+      },(error)=>{
+        console.log(error);
+      });
+    }else {
+      this._projetService.updatProjet(this.projet).subscribe(
+        (response)=>{
+          console.log(response);
+          this._router.navigate(['Allprojects']);
+        }, (error)=>{
+          console.log(error);
+        }
+      );
+    }
     
-    //-------send projet-------
-    this._projetService.createProjet(this.projet).subscribe((response)=>{  
-      console.log(response);
-      this._router.navigate(['listprojets']);
-    },(error)=>{
-      console.log(error);
-    });
   }
   newClient(){
     this._router.navigate(['newClient']);

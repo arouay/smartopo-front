@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Projet } from 'app/models/projet';
 import { ProjetService } from 'app/shared_services/projet.service';
@@ -16,5 +16,20 @@ export class TypographyComponent implements OnInit {
 
   ngOnInit() {
     this.projet = this.projetService.getter();
+  }
+  delete(){
+    if(confirm("Etes-vous sur de vouloir supprimer le projet ? ( Cette opération est irréversible ! )")){
+      this.projetService.deleteProjet(this.projet.id).subscribe(
+        (response)=>{
+          console.log(response);
+          this._router.navigate(['listprojets']);
+        },(error)=>{
+          console.log(error);
+        }
+      );
+    }
+  }
+  update(){
+    this._router.navigate(['formeprojet']);
   }
 }
