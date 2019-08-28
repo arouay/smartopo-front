@@ -14,6 +14,9 @@ import { ProjetformComponent } from 'app/projetform/projetform.component';
 import { TypeprojetComponent } from 'app/typeprojet/typeprojet.component';
 import { ClientformComponent } from 'app/clientform/clientform.component';
 import { ListprojetsComponent } from 'app/listprojets/listprojets.component';
+import { ListphasesComponent } from 'app/listphases/listphases.component';
+import { PhaseformComponent } from 'app/phaseform/phaseform.component';
+import { LivrableformComponent } from 'app/livrableform/livrableform.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -71,5 +74,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'formeprojet', component: ProjetformComponent},
     { path: 'newTypeProjet', component: TypeprojetComponent},
     { path: 'newClient', component: ClientformComponent},
-    { path: 'listprojets', component:ListprojetsComponent}
+    { path: 'listprojets', component:ListprojetsComponent},
+    { path: 'listphases', component:ListphasesComponent},
+    { path: 'phaseform', component:PhaseformComponent},
+    { path: 'livrableform', component:LivrableformComponent}
 ];

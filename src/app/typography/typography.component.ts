@@ -32,4 +32,7 @@ export class TypographyComponent implements OnInit {
   update(){
     this._router.navigate(['formeprojet']);
   }
+  managePhases(){
+    this._router.navigate(['listphases']);
+  }
 }

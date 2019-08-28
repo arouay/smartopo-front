@@ -1,0 +1,63 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title "><a (click)="newPhase()" style="cursor:pointer"><i class="material-icons" style="font-size:40px">add_circle_outline</i></a></h4>
+                      <p class="card-category"> La liste des phases de ce projet</p>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class=" text-primary">
+                                  <th>
+                                      Intitulé
+                                  </th>
+                                  <th>
+                                      Durée estimée
+                                  </th>
+                                  <th>
+                                      Date de commancement
+                                  </th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>                                
+                                </thead>
+                              <tbody>
+                                  <tr *ngFor="let phase of concernedPhases">
+                                      <td>{{phase.intitule}}</td> 
+                                      <td>{{phase.duree_estimee}}</td> 
+                                      <td>{{phase.date_commancement}}</td> 
+                                      <td class="td-actions text-right">
+                                        <button (click)="gestionLivrable(phase)" mat-raised-button type="button" matTooltip="Gestion des livrables" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                            <i class="material-icons">attach_file</i>
+                                        </button>                                            
+                                      </td>
+                                      <td class="td-actions text-right">
+                                        <button mat-raised-button type="button" matTooltip="Gestion des tâches" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                            <i class="material-icons">ballot</i>
+                                        </button>                                            
+                                      </td>                                                                            
+                                      <td class="td-actions text-right">
+                                          <button (click)="updatePhase(phase)" mat-raised-button type="button"  matTooltip="Modifier"  class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                              <i class="material-icons">edit</i>
+                                          </button>                                            
+                                      </td>
+                                      <td>
+                                          <button (click)="deletePhase(phase)" mat-raised-button type="button" matTooltip="Supprimer"  class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                              <i class="material-icons">delete_sweep</i>
+                                          </button>                                            
+                                      </td>                                                                              
+                                  </tr>                                    
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+</div>
+
