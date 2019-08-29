@@ -29,6 +29,8 @@ import { ListprojetsComponent } from 'app/listprojets/listprojets.component';
 import { ListphasesComponent } from 'app/listphases/listphases.component';
 import { PhaseformComponent } from 'app/phaseform/phaseform.component';
 import { LivrableformComponent } from 'app/livrableform/livrableform.component';
+import { MaterielformComponent } from 'app/materielform/materielform.component';
+import { ListmaterielComponent } from 'app/listmateriel/listmateriel.component';
 
 
 
@@ -62,7 +64,9 @@ import { LivrableformComponent } from 'app/livrableform/livrableform.component';
     ListprojetsComponent,
     ListphasesComponent,
     PhaseformComponent,
-    LivrableformComponent
+    LivrableformComponent,
+    MaterielformComponent,
+    ListmaterielComponent
   ]
 })
 

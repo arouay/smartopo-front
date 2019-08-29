@@ -17,6 +17,8 @@ import { ListprojetsComponent } from 'app/listprojets/listprojets.component';
 import { ListphasesComponent } from 'app/listphases/listphases.component';
 import { PhaseformComponent } from 'app/phaseform/phaseform.component';
 import { LivrableformComponent } from 'app/livrableform/livrableform.component';
+import { MaterielformComponent } from 'app/materielform/materielform.component';
+import { ListmaterielComponent } from 'app/listmateriel/listmateriel.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -77,5 +79,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'listprojets', component:ListprojetsComponent},
     { path: 'listphases', component:ListphasesComponent},
     { path: 'phaseform', component:PhaseformComponent},
-    { path: 'livrableform', component:LivrableformComponent}
+    { path: 'livrableform', component:LivrableformComponent},
+    { path: 'materielform', component:MaterielformComponent},
+    { path: 'listmateriel', component:ListmaterielComponent}
 ];

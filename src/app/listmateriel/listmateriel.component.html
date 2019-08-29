@@ -1,0 +1,62 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title "><a (click)="newMateriel()" style="cursor:pointer"><i class="material-icons" style="font-size:40px">add_circle_outline</i></a></h4>
+                        <p class="card-category"> La liste des materiels</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Nom
+                                    </th>
+                                    <th>
+                                        Marque
+                                    </th>
+                                    <th>
+                                        Etat d'achat
+                                    </th>
+                                    <th>
+                                        Date d'achat
+                                    </th>
+                                    <th></th>
+                                    <th></th>                                  
+                                    <th></th>
+                                  </thead>
+                                <tbody>
+                                    <tr *ngFor="let employe of employes">
+                                        <td>{{ materiel.nom }}</td> 
+                                        <td>{{ materiel.marque }}</td> 
+                                        <td>{{ materiel.etat_achat }}</td> 
+                                        <td>{{ employe.date_achat }}</td>  
+                                        <td class="td-actions text-right">
+                                            <button mat-raised-button type="button" (click)="showDetails(employe)" matTooltip="Afficher détails" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">ballot</i>
+                                            </button>                                            
+                                        </td>                                                                             
+                                        <td class="td-actions text-right">
+                                            <button mat-raised-button type="button" (click)="updateMateriel(employe)" matTooltip="Modifier" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">edit</i>
+                                            </button>                                            
+                                        </td>
+                                        <td>
+                                            <button mat-raised-button type="button" (click)="deleteMateriel(employe)" matTooltip="Supprimer" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">delete_sweep</i>
+                                            </button>                                            
+                                        </td>                                                                              
+                                    </tr>                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  
