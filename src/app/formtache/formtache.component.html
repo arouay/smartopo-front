@@ -1,0 +1,47 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title"><strong style="text-transform: uppercase;">Nouvelle tâche</strong></h4>
+                        <p class="card-category">Veuillez remplir tous les champs</p>
+                    </div>
+                    <div class="card-body">
+                      <form (ngSubmit)="processForm()">
+                        <div class="row">                            
+                            <div class="col-md-5">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Durée estimée" name="duree_estimee" type="number" [(ngModel)]="tache.duree_estimee">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Date de commancement" type="date" name="date_commancement" [(ngModel)]="tache.date_commancement">
+                                </mat-form-field>
+                            </div> 
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Priorité" name="priorite" [(ngModel)]="tache.priorite" type="number">
+                                  </mat-form-field>
+                              </div>                               
+                        </div> 
+                        <div class="form-group">
+                            <label>Employé</label>&nbsp;&nbsp;&nbsp;
+                            <a style="cursor:pointer;" (click)="newEmploye()"><i class="material-icons" style="font-size:20px">create</i><i><strong>Ajouter un employé</strong></i></a>
+                            <select class="form-control" name="employe_responsable" [(ngModel)]="tache.employe_responsable">
+                              <option *ngFor='let employe of employes' [value]="employe.id">{{employe.nom}} {{employe.prenom}}</option>                                                                 
+                            </select>                                
+                        </div>                                               
+                        <br>                                                
+                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Valider</button>
+                        <div class="clearfix"></div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  

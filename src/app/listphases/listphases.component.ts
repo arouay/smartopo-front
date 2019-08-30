@@ -38,6 +38,10 @@ export class ListphasesComponent implements OnInit {
   updatePhase(phase:Phase){
 
   }
+  gestionTaches(phase:Phase){
+    this._phaseService.setter(phase);
+    this._router.navigate(['listtache']);
+  }
   gestionLivrable(phase:Phase){
     this._phaseService.setter(phase);
     this._router.navigate(['livrableform']);

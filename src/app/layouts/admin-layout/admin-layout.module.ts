@@ -31,6 +31,8 @@ import { PhaseformComponent } from 'app/phaseform/phaseform.component';
 import { LivrableformComponent } from 'app/livrableform/livrableform.component';
 import { MaterielformComponent } from 'app/materielform/materielform.component';
 import { ListmaterielComponent } from 'app/listmateriel/listmateriel.component';
+import { FormtacheComponent } from 'app/formtache/formtache.component';
+import { ListtacheComponent } from 'app/listtache/listtache.component';
 
 
 
@@ -66,7 +68,9 @@ import { ListmaterielComponent } from 'app/listmateriel/listmateriel.component';
     PhaseformComponent,
     LivrableformComponent,
     MaterielformComponent,
-    ListmaterielComponent
+    ListmaterielComponent,
+    FormtacheComponent,
+    ListtacheComponent
   ]
 })
 
