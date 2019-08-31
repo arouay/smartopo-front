@@ -1,0 +1,39 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title"><strong style="text-transform: uppercase;">Authentification</strong></h4>
+                        <p class="card-category">Veuillez entrer votre login et mot de passe</p>
+                    </div>
+                    <div class="card-body">
+                      <form (ngSubmit)="processForm()">
+                        <div class="row">                                                  
+                            <div class="col-md-12">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Login" name="login" [(ngModel)]="username">
+                                </mat-form-field>
+                            </div>                                                        
+                        </div> 
+                        <div class="row">                            
+                            
+                            <div class="col-md-12">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Mot de passe" type="password" name="password" [(ngModel)]="password">
+                                </mat-form-field>
+                            </div> 
+                            
+                        </div>                                                                    
+                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Entrer</button>
+                        <div class="clearfix"></div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  

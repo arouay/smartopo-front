@@ -47,6 +47,6 @@ export class FormtacheComponent implements OnInit {
     );
   }
   newEmploye(){
-
+    this._router.navigate(['formemploye']);
   }
 }

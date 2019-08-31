@@ -43,7 +43,7 @@
                             </div>                            
                             <hr>
                             <div>                                                                                                                                  
-                              <input type="file" name="image_neuf" [(ngModel)]="materiel.image_neuf">                                                                                                                                   
+                              <input type="file" name="image_neuf" (change)="onFileChange($event)">                                                                                                                                                  
                             </div>                            
                             <button mat-raised-button type="submit" class="btn btn-danger pull-right">Valider</button>
                             <div class="clearfix"></div>

@@ -9,18 +9,9 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Tableau de bord',  icon: 'dashboard', class: '' },
-    { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
-    { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
-
     { path: '/listeemployes', title: 'Gestion des employés',  icon:'playlist_add', class: '' },
     { path: '/listmateriel', title: 'Gestion du materiel',  icon:'build', class: '' },
-
-    { path: '/listprojets', title: 'Tous les projets',  icon:'library_books', class: '' },
-    { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
-    { path: '/maps', title: 'Maps',  icon:'location_on', class: '' },
-    { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
-    
-    
+    { path: '/listprojets', title: 'Tous les projets',  icon:'library_books', class: '' },            
 ];
 
 @Component({
@@ -29,12 +20,16 @@ export const ROUTES: RouteInfo[] = [
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  menuItems: any[];
-
+  menuItems: any[];  
   constructor() { }
 
-  ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+  ngOnInit() {        
+    if(sessionStorage.getItem('employe') != null){      
+      this.menuItems = ROUTES.filter(menuItem => menuItem); 
+      this.menuItems.splice(1,3);     
+    }else if(sessionStorage.getItem('admin') != null){
+      this.menuItems = ROUTES.filter(menuItem => menuItem);      
+    }
   }
   isMobileMenu() {
       if ($(window).width() > 991) {
