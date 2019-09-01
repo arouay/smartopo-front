@@ -23,6 +23,8 @@ import { ListtacheComponent } from 'app/listtache/listtache.component';
 import { FormtacheComponent } from 'app/formtache/formtache.component';
 import { AuthentificationComponent } from 'app/authentification/authentification.component';
 import { ListmestachesComponent } from 'app/listmestaches/listmestaches.component';
+import { ListdepensechargeComponent } from 'app/listdepensecharge/listdepensecharge.component';
+import { DepensechargeformComponent } from 'app/depensechargeform/depensechargeform.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -89,5 +91,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'listtache', component:ListtacheComponent},
     { path: 'formtache', component:FormtacheComponent},
     { path: 'login', component:AuthentificationComponent},
-    { path: 'mestaches', component:ListmestachesComponent}
+    { path: 'mestaches', component:ListmestachesComponent},
+    { path: 'listdepensescharges', component:ListdepensechargeComponent},
+    { path: 'depensechargeform', component:DepensechargeformComponent}
 ];

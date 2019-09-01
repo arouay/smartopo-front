@@ -1,0 +1,50 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title"><strong style="text-transform: uppercase;">Nouvelle dépense/charge</strong></h4>
+                        <p class="card-category">Veuillez remplir tous les champs</p>
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="processForm()">
+                            <div class="row">
+                                <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Intitulé" name="intitule" [(ngModel)]="depensecharge.intitule">
+                                    </mat-form-field>
+                                </div>                                
+                                <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Montant" name="montant" [(ngModel)]="depensecharge.montant" type="money">
+                                    </mat-form-field>
+                                </div> 
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Date" name="date" [(ngModel)]="depensecharge.date" type="date">
+                                      </mat-form-field>
+                                  </div> 
+                            </div>
+                            <br>                            
+                            <div class="row">
+                                <div class="col-md-3"></div>
+                              <div class="col-md-3">
+                                <input type="radio" name="type" (click)="depch('Dépense')"> Dépense
+                              </div> 
+                              <div class="col-md-3">
+                                <input type="radio" name="type" (click)="depch('Charge')"> Charge
+                              </div>                                
+                            </div>
+                            <hr>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Valider</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  

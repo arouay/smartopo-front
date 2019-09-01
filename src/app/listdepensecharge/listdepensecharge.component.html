@@ -1,0 +1,56 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title "><a (click)="newDepensecharge()" style="cursor:pointer"><i class="material-icons" style="font-size:40px">add_circle_outline</i></a></h4>
+                        <p class="card-category"> Les dépenses et charges</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Intitulé
+                                    </th>
+                                    <th>
+                                        Montant
+                                    </th>
+                                    <th>
+                                        Date
+                                    </th>
+                                    <th>
+                                        Type
+                                    </th>                                     
+                                    <th></th>                                  
+                                    <th></th>
+                                  </thead>
+                                <tbody>
+                                    <tr *ngFor="let dc of concernedDepensecharges">
+                                        <td>{{ dc.intitule }}</td> 
+                                        <td>{{ dc.montant }}</td> 
+                                        <td>{{ dc.date }}</td> 
+                                        <td>{{ dc.type }}</td>                                                                         
+                                        <td class="td-actions text-right">
+                                            <button mat-raised-button type="button" (click)="updateDepensecharge(dc)" matTooltip="Modifier" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">edit</i>
+                                            </button>                                            
+                                        </td>
+                                        <td>
+                                            <button mat-raised-button type="button" (click)="deleteDepensecharge(dc)" matTooltip="Supprimer" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">delete_sweep</i>
+                                            </button>                                            
+                                        </td>                                                                              
+                                    </tr>                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  

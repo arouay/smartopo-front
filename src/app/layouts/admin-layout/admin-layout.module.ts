@@ -35,6 +35,8 @@ import { FormtacheComponent } from 'app/formtache/formtache.component';
 import { ListtacheComponent } from 'app/listtache/listtache.component';
 import { AuthentificationComponent } from 'app/authentification/authentification.component';
 import { ListmestachesComponent } from 'app/listmestaches/listmestaches.component';
+import { ListdepensechargeComponent } from 'app/listdepensecharge/listdepensecharge.component';
+import { DepensechargeformComponent } from 'app/depensechargeform/depensechargeform.component';
 
 
 
@@ -74,7 +76,9 @@ import { ListmestachesComponent } from 'app/listmestaches/listmestaches.componen
     FormtacheComponent,
     ListtacheComponent,
     AuthentificationComponent,
-    ListmestachesComponent
+    ListmestachesComponent,
+    ListdepensechargeComponent,
+    DepensechargeformComponent
   ]
 })
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Tache } from 'app/models/tache';
 import { TacheService } from 'app/shared_services/tache.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listmestaches',
@@ -11,7 +12,7 @@ export class ListmestachesComponent implements OnInit {
   private allTaches:Tache[];
   private concernedTaches:Tache[] = [];
 
-  constructor(private _tacheService:TacheService) { }
+  constructor(private _tacheService:TacheService, private _router:Router) { }
 
   ngOnInit() {
     this._tacheService.getTaches().subscribe(
@@ -31,6 +32,7 @@ export class ListmestachesComponent implements OnInit {
     
   }
   newDepenseCharge(tache:Tache){
-    
+    this._tacheService.setter(tache);
+    this._router.navigate(['listdepensescharges']);
   }
 }
