@@ -1,0 +1,56 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title "><p class="card-category"><strong>Mes tâches</strong></p></h4>                        
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Durée éstimée
+                                    </th>
+                                    <th>
+                                        Date de commancement
+                                    </th>
+                                    <th>
+                                        Priorité
+                                    </th>
+                                    <th>
+                                        Phase
+                                    </th>
+                                    <th></th>
+                                    <th></th>                                  
+                                    <th></th>
+                                  </thead>
+                                <tbody>
+                                    <tr *ngFor="let tache of concernedTaches">
+                                        <td>{{tache.duree_estimee}}</td> 
+                                        <td>{{tache.date_commancement}}</td> 
+                                        <td>{{tache.priorite}}</td> 
+                                        <td>{{tache.phase.intitule}}</td>  
+                                        <td class="td-actions text-right">
+                                            <button mat-raised-button type="button" (click)="addAvancement(tache)" matTooltip="Marquer un avancement" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">ballot</i>
+                                            </button>                                            
+                                        </td>  
+                                        <td class="td-actions text-right">
+                                            <button mat-raised-button type="button" (click)="newDepenseCharge(tache)" matTooltip="Affecter dépense ou charge" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">attach_file</i>
+                                            </button>                                            
+                                        </td>                                                                                                                                                                                              
+                                    </tr>                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  

@@ -34,6 +34,7 @@ import { ListmaterielComponent } from 'app/listmateriel/listmateriel.component';
 import { FormtacheComponent } from 'app/formtache/formtache.component';
 import { ListtacheComponent } from 'app/listtache/listtache.component';
 import { AuthentificationComponent } from 'app/authentification/authentification.component';
+import { ListmestachesComponent } from 'app/listmestaches/listmestaches.component';
 
 
 
@@ -72,7 +73,8 @@ import { AuthentificationComponent } from 'app/authentification/authentification
     ListmaterielComponent,
     FormtacheComponent,
     ListtacheComponent,
-    AuthentificationComponent
+    AuthentificationComponent,
+    ListmestachesComponent
   ]
 })
 

@@ -22,6 +22,7 @@ import { ListmaterielComponent } from 'app/listmateriel/listmateriel.component';
 import { ListtacheComponent } from 'app/listtache/listtache.component';
 import { FormtacheComponent } from 'app/formtache/formtache.component';
 import { AuthentificationComponent } from 'app/authentification/authentification.component';
+import { ListmestachesComponent } from 'app/listmestaches/listmestaches.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -87,5 +88,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'listmateriel', component:ListmaterielComponent},
     { path: 'listtache', component:ListtacheComponent},
     { path: 'formtache', component:FormtacheComponent},
-    { path: 'login', component:AuthentificationComponent}
+    { path: 'login', component:AuthentificationComponent},
+    { path: 'mestaches', component:ListmestachesComponent}
 ];
