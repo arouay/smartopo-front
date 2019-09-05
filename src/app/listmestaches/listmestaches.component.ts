@@ -29,7 +29,8 @@ export class ListmestachesComponent implements OnInit {
     );
   }
   addAvancement(tache:Tache){
-    
+    this._tacheService.setter(tache);
+    this._router.navigate(['tacheavancementform']);
   }
   newDepenseCharge(tache:Tache){
     this._tacheService.setter(tache);

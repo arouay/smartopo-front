@@ -3,6 +3,8 @@ import { EmployeService } from 'app/shared_services/employe.service';
 import { Employe } from 'app/models/employe';
 import { Router } from '@angular/router';
 import { componentRefresh } from '@angular/core/src/render3/instructions';
+import { Admin } from 'app/models/admin';
+import { AdminService } from 'app/shared_services/admin.service';
 
 @Component({
   selector: 'app-authentification',
@@ -12,23 +14,31 @@ import { componentRefresh } from '@angular/core/src/render3/instructions';
 export class AuthentificationComponent implements OnInit {
   private username:string;
   private password:string;
-  private allUsers:Employe[];
+  private allEmployes:Employe[];
+  private allAdmins:Admin[];
 
-  constructor(private _router:Router, private _employeService:EmployeService) { }
+  constructor(private _router:Router, private _employeService:EmployeService, private _adminService:AdminService) { }
 
   ngOnInit() {
     this._employeService.getEmployes().subscribe(
       (response)=>{
-        this.allUsers = response;
+        this.allEmployes = response;
       }, (error)=>{        
         console.log(error);
       });
+    this._adminService.getAdmins().subscribe(
+      (response)=>{
+        this.allAdmins = response;
+      }, (error)=>{
+        console.log(error);
+      }
+    );
   }
   processForm(){
-    if(this.allUsers.find(i=>i.email == this.username /* and password later */) != null){
+    if(this.allEmployes.find((i=>i.email == this.username) && (i=>i.mdp == this.password)) != null){
       sessionStorage.setItem('employe',this.username);                             
       window.location.href = 'dashboard';
-    }else if(this.username == 'admin'){
+    }else if(this.allAdmins.find((i=>i.login == this.username) && (i=>i.mdp == this.password)) != null){
       sessionStorage.setItem('admin',this.username);
       window.location.href = 'dashboard';
     }else{

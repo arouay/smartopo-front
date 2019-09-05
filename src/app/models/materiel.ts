@@ -4,6 +4,6 @@ export class Materiel{
     marque:string;
     etat_achat:boolean;
     date_achat:Date;
-    image_neuf:string;
+    image_neuf:Blob;
     quantite:number;
 }

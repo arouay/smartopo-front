@@ -37,7 +37,7 @@ import { AuthentificationComponent } from 'app/authentification/authentification
 import { ListmestachesComponent } from 'app/listmestaches/listmestaches.component';
 import { ListdepensechargeComponent } from 'app/listdepensecharge/listdepensecharge.component';
 import { DepensechargeformComponent } from 'app/depensechargeform/depensechargeform.component';
-
+import { TacheavancementformComponent } from 'app/tacheavancementform/tacheavancementform.component';
 
 
 @NgModule({
@@ -78,7 +78,8 @@ import { DepensechargeformComponent } from 'app/depensechargeform/depensechargef
     AuthentificationComponent,
     ListmestachesComponent,
     ListdepensechargeComponent,
-    DepensechargeformComponent
+    DepensechargeformComponent,
+    TacheavancementformComponent
   ]
 })
 

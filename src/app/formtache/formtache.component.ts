@@ -36,6 +36,8 @@ export class FormtacheComponent implements OnInit {
     this.tache.employe_responsable = this.employetmp;
     //affect phase to tache
     this.tache.phase = this._phaseService.getter();
+    //initialize avancement
+    this.tache.avancement = 0;
     //sending tache
     this._tacheService.createTache(this.tache).subscribe(
       (response)=>{

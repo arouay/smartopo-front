@@ -8,4 +8,5 @@ export class Tache{
     priorite:number;
     employe_responsable:Employe;
     phase:Phase;
+    avancement:number;
 }

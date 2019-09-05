@@ -24,6 +24,7 @@ export class EmployeformComponent implements OnInit {
 
   processForm(){
     if(this.employe.id==undefined){
+      this.employe.mdp = "default";
       this._employeService.createEmploye(this.employe).subscribe((employe)=>{
         console.log(employe);
         this._router.navigate(['/listeemployes']);

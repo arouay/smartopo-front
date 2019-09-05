@@ -35,10 +35,10 @@
                               </div>                         
                             <div class="row">
                               <div class="col-md-3">
-                                  <input type="radio" name="etat_achat" checked> Neuf
+                                  <input type="radio" name="etat_achat" checked (change)="isNew(true)"> Neuf
                                 </div> 
                                 <div class="col-md-3">
-                                  <input type="radio" name="etat_achat"> Occasion
+                                  <input type="radio" name="etat_achat" (change)="isNew(false)"> Occasion
                                 </div>
                             </div>                            
                             <hr>

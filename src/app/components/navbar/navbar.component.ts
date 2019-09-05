@@ -126,4 +126,11 @@ export class NavbarComponent implements OnInit {
       }
       return '';
     }
+    logout(){
+        sessionStorage.clear();        
+        window.location.href = 'login';
+    }
+    changePassword(){
+        
+    }
 }

@@ -12,7 +12,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/listeemployes', title: 'Gestion des employés',  icon:'playlist_add', class: '' },
     { path: '/listmateriel', title: 'Gestion du materiel',  icon:'build', class: '' },
     { path: '/listprojets', title: 'Tous les projets',  icon:'library_books', class: '' }, 
-    { path: '/mestaches', title: 'Mes tâches', icon:'library_books', class:''}           
+    { path: '/mestaches', title: 'Mes tâches', icon:'library_books', class:''},
+    { path: '/facturedevis', title: 'Facture/Devis', icon: 'assignment', class: ''}         
 ];
 
 @Component({
@@ -27,7 +28,8 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {        
     if(sessionStorage.getItem('employe') != null){      
       this.menuItems = ROUTES.filter(menuItem => menuItem); 
-      this.menuItems.splice(1,3);     
+      this.menuItems.splice(1,3);
+      this.menuItems.pop();          
     }else if(sessionStorage.getItem('admin') != null){      
       this.menuItems = ROUTES.filter(menuItem => menuItem);
       this.menuItems.splice(4,1);      

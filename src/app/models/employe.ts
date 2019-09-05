@@ -10,4 +10,5 @@ export class Employe{
     email:string;
     adresse:string;
     numero_telephone:string;
+    mdp:string;
 }
