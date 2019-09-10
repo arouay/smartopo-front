@@ -1,0 +1,111 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">                                    
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title "><a (click)="newTache()" style="cursor:pointer"><i class="material-icons" style="font-size:40px">add_circle_outline</i></a></h4>
+                        <p class="card-category"> Nouvelle tâche</p>
+                    </div>
+                    <br>
+                    <div class="card-header card-header-danger">
+                        <p class="card-category"> Les filtres</p>
+                        <table>
+                          <tr>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Par phase
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                      <a class="dropdown-item" (click)='allTaches()' style="cursor:pointer">Afficher tous</a>
+                                      <a class="dropdown-item" (click)='filterByPhase(phase)' style="cursor:pointer" *ngFor="let phase of phases">{{ phase.intitule }}</a>                            
+                                    </div>
+                                </div>  
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Par employé
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                      <a class="dropdown-item" (click)='allTaches()' style="cursor:pointer">Afficher tous</a>
+                                      <a class="dropdown-item" (click)='filterByEmploye(employe)' style="cursor:pointer" *ngFor="let employe of employes">{{ employe.nom }} {{ employe.prenom }}</a>                            
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Par projet
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                      <a class="dropdown-item" (click)='allTaches()' style="cursor:pointer">Afficher tous</a>
+                                      <a class="dropdown-item" (click)='filterByProjet(projet)' style="cursor:pointer" *ngFor="let projet of projets">{{ projet.intitule }}</a>                            
+                                    </div>
+                                </div>
+                            </td>
+                          </tr>
+                        </table>                                                                                             
+                    </div>
+                   
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                  <th>
+                                    Projet
+                                  </th>
+                                    <th>
+                                        Phase
+                                    </th>
+                                    <th>
+                                        Employé responsable
+                                    </th>
+                                    <th>
+                                        Priorité
+                                    </th>
+                                    <th>
+                                        Durée éstimée
+                                    </th>  
+                                    <th>
+                                      Date de commancement
+                                    </th>
+                                    <th>
+                                      Avancement
+                                    </th>                                   
+                                    <th></th>                                  
+                                    <th></th>
+                                  </thead>
+                                <tbody>
+                                    <tr *ngFor="let tache of filtredTaches">
+                                      <td> {{ tache.phase.projet.intitule }} </td>
+                                        <td>{{ tache.phase.intitule }}</td> 
+                                        <td>{{ tache.employe_responsable.nom }} {{ tache.employe_responsable.prenom }}</td> 
+                                        <td>{{ tache.priorite }}</td> 
+                                        <td>{{ tache.duree_estimee }}</td>
+                                        <td>{{ tache.date_commancement }}</td>
+                                        <td>{{ tache.avancement }} %</td>                                                                         
+                                        <td class="td-actions text-right">
+                                            <button mat-raised-button type="button" (click)="updatePhase(phase)" matTooltip="Modifier" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">edit</i>
+                                            </button>                                            
+                                        </td>
+                                        <td>
+                                            <button mat-raised-button type="button" (click)="deletePhase(phase)" matTooltip="Supprimer" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">delete_sweep</i>
+                                            </button>                                            
+                                        </td>                                                                              
+                                    </tr>                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  
+  

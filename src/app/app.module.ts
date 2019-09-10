@@ -21,6 +21,8 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { AllTachesComponent } from './all-taches/all-taches.component';
+import { AllPhasesComponent } from './all-phases/all-phases.component';
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

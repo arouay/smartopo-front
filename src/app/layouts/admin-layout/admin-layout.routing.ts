@@ -26,6 +26,8 @@ import { ListmestachesComponent } from 'app/listmestaches/listmestaches.componen
 import { ListdepensechargeComponent } from 'app/listdepensecharge/listdepensecharge.component';
 import { DepensechargeformComponent } from 'app/depensechargeform/depensechargeform.component';
 import { TacheavancementformComponent } from 'app/tacheavancementform/tacheavancementform.component';
+import { AllTachesComponent } from 'app/all-taches/all-taches.component';
+import { AllPhasesComponent } from 'app/all-phases/all-phases.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -95,5 +97,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'mestaches', component:ListmestachesComponent},
     { path: 'listdepensescharges', component:ListdepensechargeComponent},
     { path: 'depensechargeform', component:DepensechargeformComponent},
-    { path: 'tacheavancementform', component:TacheavancementformComponent}
+    { path: 'tacheavancementform', component:TacheavancementformComponent},
+    { path: 'allTaches', component:AllTachesComponent},
+    { path: 'allPhases', component:AllPhasesComponent}
 ];

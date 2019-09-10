@@ -38,7 +38,8 @@ import { ListmestachesComponent } from 'app/listmestaches/listmestaches.componen
 import { ListdepensechargeComponent } from 'app/listdepensecharge/listdepensecharge.component';
 import { DepensechargeformComponent } from 'app/depensechargeform/depensechargeform.component';
 import { TacheavancementformComponent } from 'app/tacheavancementform/tacheavancementform.component';
-
+import { AllTachesComponent } from 'app/all-taches/all-taches.component';
+import { AllPhasesComponent } from 'app/all-phases/all-phases.component';
 
 @NgModule({
   imports: [
@@ -51,7 +52,7 @@ import { TacheavancementformComponent } from 'app/tacheavancementform/tacheavanc
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-    
+  
   ],
   declarations: [
     DashboardComponent,
@@ -79,7 +80,9 @@ import { TacheavancementformComponent } from 'app/tacheavancementform/tacheavanc
     ListmestachesComponent,
     ListdepensechargeComponent,
     DepensechargeformComponent,
-    TacheavancementformComponent
+    TacheavancementformComponent,
+    AllTachesComponent,
+    AllPhasesComponent
   ]
 })
 
