@@ -6,6 +6,8 @@ import { PhaseService } from 'app/shared_services/phase.service';
 import { TacheService } from 'app/shared_services/tache.service';
 import { Phase } from 'app/models/phase';
 import { Tache } from 'app/models/tache';
+import { RecetteService } from 'app/shared_services/recette.service';
+import { Recette } from 'app/models/recette';
 
 @Component({
   selector: 'app-typography',
@@ -18,9 +20,10 @@ export class TypographyComponent implements OnInit {
   taches:Tache[];
   concernedTaches:Tache[]=[];
   avancements:number=0;
-  nbConcernedTaches:number=0;
+  nbConcernedTaches:number=1; //for division in case 0  
+  specificRecettes:Recette[]=[];
 
-  constructor(private _router:Router,private projetService:ProjetService, private _phaseService:PhaseService, private _tacheService:TacheService) { }
+  constructor(private _router:Router,private projetService:ProjetService, private _phaseService:PhaseService, private _tacheService:TacheService, private _recetteService:RecetteService) { }
 
   ngOnInit() {
     this.projet = this.projetService.getter();
@@ -38,6 +41,17 @@ export class TypographyComponent implements OnInit {
         console.log(this.avancement);
         console.log(this.avancements);
         console.log(this.nbConcernedTaches);
+      }, (error)=>{
+        console.log(error);
+      }
+    );
+    this._recetteService.getRecettes().subscribe(
+      (response)=>{
+        response.forEach(element => {
+          if(element.projet.id == this.projet.id){
+            this.specificRecettes.push(element);
+          }
+        });                
       }, (error)=>{
         console.log(error);
       }
@@ -60,5 +74,15 @@ export class TypographyComponent implements OnInit {
   }
   managePhases(){
     this._router.navigate(['listphases']);
+  }
+  deleteRecette(recette:Recette){
+    this.specificRecettes.splice(this.specificRecettes.indexOf(recette),1);
+    this._recetteService.deleteRecette(recette.id).subscribe(
+      (Response)=>{
+        console.log(Response);
+      }, (error)=>{
+        console.log(error);
+      }
+    );    
   }
 }

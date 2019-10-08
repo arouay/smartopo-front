@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
 import { Router } from '@angular/router';
+import { Projet } from 'app/models/projet';
+import { ProjetService } from 'app/shared_services/projet.service';
+import { EmployeService } from 'app/shared_services/employe.service';
+import { RecetteService } from 'app/shared_services/recette.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,8 +12,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  totalRevenus:number=0;
+  totalRecettes:number=0;
+  nbEmployes:number=0;
+  allprojets:Projet[];
+  nbRecettes:number=0;
 
-  constructor(private _router:Router) { }
+  constructor(private _router:Router, private _projetService:ProjetService, private _employeService:EmployeService, private _recetteService:RecetteService) { }
+
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -67,6 +77,35 @@ export class DashboardComponent implements OnInit {
       seq2 = 0;
   };
   ngOnInit() {
+    this._projetService.getProjets().subscribe(
+      (response)=>{
+        this.allprojets = response;
+        this.allprojets.forEach(projet => {
+          this.totalRevenus += projet.montant_estime;
+        });
+      }, (error)=>{
+        console.log(error);
+      }
+    );
+    this._employeService.getEmployes().subscribe(
+      (response)=>{
+        console.log(response);
+        this.nbEmployes = response.length;
+      }, (error)=>{
+        console.log(error);
+      }
+    );
+    this._recetteService.getRecettes().subscribe(
+      (response)=>{
+        response.forEach(recette => {
+          this.nbRecettes++;
+          this.totalRecettes += recette.montant;
+        });
+        
+      }, (error)=>{
+        console.log(error);
+      }
+    );
     if(sessionStorage.length == 0){
       this._router.navigate(['login']);
     }

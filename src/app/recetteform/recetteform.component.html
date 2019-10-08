@@ -1,0 +1,50 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title"><strong style="text-transform: uppercase;">Nouvelle recette</strong></h4>
+                        <p class="card-category">Veuillez remplir tous les champs</p>
+                    </div>
+                    <div class="card-body">
+                        <form (ngSubmit)="processForm()">
+                            <div class="row">
+                                <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Intitulé" name="intitule" [(ngModel)]="recette.intitule">
+                                    </mat-form-field>
+                                </div> 
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Montant" name="montant" [(ngModel)]="recette.montant">
+                                      </mat-form-field>
+                                  </div> 
+                                  <div class="col-md-4">
+                                      <mat-form-field class="example-full-width">
+                                          <input matInput placeholder="Date" name="date" type="date" [(ngModel)]="recette.date">
+                                        </mat-form-field>
+                                    </div>                                
+                                
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                  <label>Projet</label>&nbsp;
+                                  <select class="form-control" name="projet" [(ngModel)]="idProjet">
+                                      <option *ngFor='let projet of projets' [value]="projet.id">Intitulé: {{projet.intitule}} - Titre foncier: {{projet.titre_foncier}}</option>                                                                    
+                                    </select>  
+                              </div>
+                            </div>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Valider</button>
+                            <div class="clearfix"></div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+  
+        
+  </div>
+  

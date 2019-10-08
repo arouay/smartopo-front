@@ -16,7 +16,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/mestaches', title: 'Mes tâches', icon:'library_books', class:''},    
     { path: '/allPhases', title: 'Historique des phases', icon: 'dns', class: ''},
     { path: '/allTaches', title: 'Historique des tâches', icon: 'list', class: ''},
-    { path: '/facturedevis', title: 'Factures et Devis', icon: 'assignment', class: ''}
+    { path: '/facturedevis', title: 'Factures et Devis', icon: 'assignment', class: ''},
+    { path: '/recetteform', title: 'Nouvelle recette', icon:'local_atm', class:''}
 ];
 
 @Component({
@@ -32,6 +33,7 @@ export class SidebarComponent implements OnInit {
     if(sessionStorage.getItem('employe') != null){      
       this.menuItems = ROUTES.filter(menuItem => menuItem); 
       this.menuItems.splice(2,3);      
+      this.menuItems.pop(); 
       this.menuItems.pop();              
     }else if(sessionStorage.getItem('admin') != null){      
       this.menuItems = ROUTES.filter(menuItem => menuItem);

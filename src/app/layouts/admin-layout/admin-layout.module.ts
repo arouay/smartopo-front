@@ -43,6 +43,7 @@ import { AllPhasesComponent } from 'app/all-phases/all-phases.component';
 import { CalendarComponent } from 'app/calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
 import { ChangepassowrdformComponent } from 'app/changepassowrdform/changepassowrdform.component';
+import { RecetteformComponent } from 'app/recetteform/recetteform.component';
 
 @NgModule({
   imports: [
@@ -87,7 +88,8 @@ import { ChangepassowrdformComponent } from 'app/changepassowrdform/changepassow
     AllTachesComponent,
     AllPhasesComponent,
     CalendarComponent,
-    ChangepassowrdformComponent
+    ChangepassowrdformComponent,
+    RecetteformComponent
   ]
 })
 

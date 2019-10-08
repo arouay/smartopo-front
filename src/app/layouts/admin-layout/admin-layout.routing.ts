@@ -30,6 +30,7 @@ import { AllTachesComponent } from 'app/all-taches/all-taches.component';
 import { AllPhasesComponent } from 'app/all-phases/all-phases.component';
 import { CalendarComponent } from 'app/calendar/calendar.component';
 import { ChangepassowrdformComponent } from 'app/changepassowrdform/changepassowrdform.component';
+import { RecetteformComponent } from 'app/recetteform/recetteform.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -103,5 +104,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'allTaches', component:AllTachesComponent},
     { path: 'allPhases', component:AllPhasesComponent},
     { path: 'calendar', component:CalendarComponent},
-    { path: 'changePassword', component: ChangepassowrdformComponent}
+    { path: 'changePassword', component: ChangepassowrdformComponent},
+    { path: 'recetteform', component: RecetteformComponent}
 ];
