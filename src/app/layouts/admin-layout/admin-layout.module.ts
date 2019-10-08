@@ -40,6 +40,9 @@ import { DepensechargeformComponent } from 'app/depensechargeform/depensechargef
 import { TacheavancementformComponent } from 'app/tacheavancementform/tacheavancementform.component';
 import { AllTachesComponent } from 'app/all-taches/all-taches.component';
 import { AllPhasesComponent } from 'app/all-phases/all-phases.component';
+import { CalendarComponent } from 'app/calendar/calendar.component';
+import { FullCalendarModule } from '@fullcalendar/angular'; // for FullCalendar!
+import { ChangepassowrdformComponent } from 'app/changepassowrdform/changepassowrdform.component';
 
 @NgModule({
   imports: [
@@ -52,7 +55,7 @@ import { AllPhasesComponent } from 'app/all-phases/all-phases.component';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-  
+    FullCalendarModule // for FullCalendar!
   ],
   declarations: [
     DashboardComponent,
@@ -82,7 +85,9 @@ import { AllPhasesComponent } from 'app/all-phases/all-phases.component';
     DepensechargeformComponent,
     TacheavancementformComponent,
     AllTachesComponent,
-    AllPhasesComponent
+    AllPhasesComponent,
+    CalendarComponent,
+    ChangepassowrdformComponent
   ]
 })
 

@@ -28,6 +28,8 @@ import { DepensechargeformComponent } from 'app/depensechargeform/depensechargef
 import { TacheavancementformComponent } from 'app/tacheavancementform/tacheavancementform.component';
 import { AllTachesComponent } from 'app/all-taches/all-taches.component';
 import { AllPhasesComponent } from 'app/all-phases/all-phases.component';
+import { CalendarComponent } from 'app/calendar/calendar.component';
+import { ChangepassowrdformComponent } from 'app/changepassowrdform/changepassowrdform.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -99,5 +101,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'depensechargeform', component:DepensechargeformComponent},
     { path: 'tacheavancementform', component:TacheavancementformComponent},
     { path: 'allTaches', component:AllTachesComponent},
-    { path: 'allPhases', component:AllPhasesComponent}
+    { path: 'allPhases', component:AllPhasesComponent},
+    { path: 'calendar', component:CalendarComponent},
+    { path: 'changePassword', component: ChangepassowrdformComponent}
 ];

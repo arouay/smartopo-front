@@ -9,6 +9,7 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Tableau de bord',  icon: 'dashboard', class: '' },
+    { path: '/calendar', title: 'Mon calendrier',  icon: 'calendar_today', class: '' },
     { path: '/listeemployes', title: 'Gestion des employés',  icon:'playlist_add', class: '' },
     { path: '/listmateriel', title: 'Gestion du materiel',  icon:'build', class: '' },
     { path: '/listprojets', title: 'Historique des projets',  icon:'library_books', class: '' }, 
@@ -16,8 +17,6 @@ export const ROUTES: RouteInfo[] = [
     { path: '/allPhases', title: 'Historique des phases', icon: 'dns', class: ''},
     { path: '/allTaches', title: 'Historique des tâches', icon: 'list', class: ''},
     { path: '/facturedevis', title: 'Factures et Devis', icon: 'assignment', class: ''}
-         
-
 ];
 
 @Component({
@@ -32,11 +31,11 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {        
     if(sessionStorage.getItem('employe') != null){      
       this.menuItems = ROUTES.filter(menuItem => menuItem); 
-      this.menuItems.splice(1,3);      
+      this.menuItems.splice(2,3);      
       this.menuItems.pop();              
     }else if(sessionStorage.getItem('admin') != null){      
       this.menuItems = ROUTES.filter(menuItem => menuItem);
-      this.menuItems.splice(4,1);      
+      this.menuItems.splice(5,1);      
     }
   }
   isMobileMenu() {

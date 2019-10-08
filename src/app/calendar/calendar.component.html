@@ -1,0 +1,23 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">              
+          <div class="card-body">
+            <full-calendar
+              (dateClick)="handleDateClick($event)"
+              defaultView="dayGridMonth"
+              [plugins]="calendarPlugins"
+              [weekends]="false"
+              [events]="[
+                { title: 'event 1', date: '2019-04-01' },
+                { title: 'event 2', date: '2019-04-02' }
+                ]"
+            ></full-calendar> 
+          </div>
+        </div>
+      </div>            
+    </div>
+  </div>
+</div>
+  

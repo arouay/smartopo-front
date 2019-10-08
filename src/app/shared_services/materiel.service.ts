@@ -25,7 +25,7 @@ export class MaterielService {
 
   getMateriels(){
     return this._http.get(this.baseUrl+'/materiels/all',this.options).map((response:Response)=>response.json()).catch(this.errorHandler);
-  }
+  }  
   createMateriel(materiel:Materiel){
     return this._http.post(this.baseUrl+'/materiels/new', JSON.stringify(materiel), this.options).map((response:Response)=>response.json()).catch(this.errorHandler);
   }

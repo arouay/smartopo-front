@@ -1,0 +1,36 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title"><strong style="text-transform: uppercase;">Changer le mot de passe</strong></h4>
+                        <p class="card-category">Veuillez remplir tous les champs</p>
+                    </div>
+                    <div class="card-body">
+                      <form (ngSubmit)="processForm()">                          
+                        <div class="row">                                                  
+                            <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Nouveau mot de passe" name="newpw" [(ngModel)]="newpw" type="password">
+                                </mat-form-field>
+                            </div> 
+                            <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Retaper le mot de passe" name="newpwverif" [(ngModel)]="newpwverif" type="password">
+                                </mat-form-field>
+                            </div>                                                        
+                        </div> 
+                                                                                      
+                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Changer</button>
+                        <div class="clearfix"></div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  

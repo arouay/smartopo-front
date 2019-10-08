@@ -28,18 +28,19 @@
                                     <th></th>
                                   </thead>
                                 <tbody>
-                                    <tr *ngFor="let employe of employes">
+                                    <tr *ngFor="let materiel of materiels">
                                         <td>{{ materiel.nom }}</td> 
                                         <td>{{ materiel.marque }}</td> 
-                                        <td>{{ materiel.etat_achat }}</td> 
-                                        <td>{{ employe.date_achat }}</td>  
+                                        <td *ngIf="materiel.etat_achat">Acheté neuf</td>
+                                        <td *ngIf="!materiel.etat_achat">Acheté en occasion</td> 
+                                        <td>{{ materiel.date_achat }}</td>  
                                         <td class="td-actions text-right">
-                                            <button mat-raised-button type="button" (click)="showDetails(employe)" matTooltip="Afficher détails" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                            <button mat-raised-button type="button" (click)="showDetails(materiel)" matTooltip="Afficher détails" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
                                                 <i class="material-icons">ballot</i>
                                             </button>                                            
                                         </td>                                                                             
                                         <td class="td-actions text-right">
-                                            <button mat-raised-button type="button" (click)="updateMateriel(employe)" matTooltip="Modifier" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                            <button mat-raised-button type="button" (click)="updateMateriel(materiel)" matTooltip="Modifier" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
                                                 <i class="material-icons">edit</i>
                                             </button>                                            
                                         </td>

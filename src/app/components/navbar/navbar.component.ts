@@ -131,6 +131,6 @@ export class NavbarComponent implements OnInit {
         window.location.href = 'login';
     }
     changePassword(){
-        
+        this.router.navigate(['changePassword']);
     }
 }
