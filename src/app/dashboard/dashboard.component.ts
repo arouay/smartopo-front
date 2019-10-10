@@ -1,81 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import * as Chartist from 'chartist';
+import { Chart } from 'chart.js';
 import { Router } from '@angular/router';
 import { Projet } from 'app/models/projet';
 import { ProjetService } from 'app/shared_services/projet.service';
 import { EmployeService } from 'app/shared_services/employe.service';
 import { RecetteService } from 'app/shared_services/recette.service';
+import { Employe } from 'app/models/employe';
+import { TacheService } from 'app/shared_services/tache.service';
+import { EmployeForChart } from 'app/models/employeForChart';
+import { NgSwitchCase } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
 export class DashboardComponent implements OnInit {
   totalRevenus:number=0;
   totalRecettes:number=0;
   nbEmployes:number=0;
   allprojets:Projet[];
   nbRecettes:number=0;
+  chartTpE:any;
+  chartBpM:any;
+  chartBpP:any;
+  employes:Employe[];
+  employesForChart:EmployeForChart[]=[];
+  benefits:number[]=[];
 
-  constructor(private _router:Router, private _projetService:ProjetService, private _employeService:EmployeService, private _recetteService:RecetteService) { }
+  constructor(private _router:Router,private _tacheService:TacheService, private _projetService:ProjetService, private _employeService:EmployeService, private _recetteService:RecetteService) { }
 
-  startAnimationForLineChart(chart){
-      let seq: any, delays: any, durations: any;
-      seq = 0;
-      delays = 80;
-      durations = 500;
-
-      chart.on('draw', function(data) {
-        if(data.type === 'line' || data.type === 'area') {
-          data.element.animate({
-            d: {
-              begin: 600,
-              dur: 700,
-              from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
-              to: data.path.clone().stringify(),
-              easing: Chartist.Svg.Easing.easeOutQuint
-            }
-          });
-        } else if(data.type === 'point') {
-              seq++;
-              data.element.animate({
-                opacity: {
-                  begin: seq * delays,
-                  dur: durations,
-                  from: 0,
-                  to: 1,
-                  easing: 'ease'
-                }
-              });
-          }
-      });
-
-      seq = 0;
-  };
-  startAnimationForBarChart(chart){
-      let seq2: any, delays2: any, durations2: any;
-
-      seq2 = 0;
-      delays2 = 80;
-      durations2 = 500;
-      chart.on('draw', function(data) {
-        if(data.type === 'bar'){
-            seq2++;
-            data.element.animate({
-              opacity: {
-                begin: seq2 * delays2,
-                dur: durations2,
-                from: 0,
-                to: 1,
-                easing: 'ease'
-              }
-            });
-        }
-      });
-
-      seq2 = 0;
-  };
   ngOnInit() {
     this._projetService.getProjets().subscribe(
       (response)=>{
@@ -88,106 +43,174 @@ export class DashboardComponent implements OnInit {
       }
     );
     this._employeService.getEmployes().subscribe(
-      (response)=>{
-        console.log(response);
-        this.nbEmployes = response.length;
+      (response)=>{              
+        this.employes = response;
+        this.employes.forEach(element => {
+          this.employesForChart.push(new EmployeForChart(element.cin,element.nom+' '+element.prenom));
+        });
+        this.nbEmployes = response.length;                
       }, (error)=>{
         console.log(error);
       }
-    );
+    );    
+    this._tacheService.getTaches().subscribe(
+      (response)=>{
+        response.forEach(tache => {
+          this.employesForChart.forEach(empl => {
+            if(tache.employe_responsable.cin == empl.cin){
+              empl.incNbrTache();              
+            }                       
+          });                
+        });
+      }, (error)=>{
+        console.log(error);
+      }
+    );    
     this._recetteService.getRecettes().subscribe(
       (response)=>{
         response.forEach(recette => {
           this.nbRecettes++;
           this.totalRecettes += recette.montant;
+          
         });
         
       }, (error)=>{
         console.log(error);
       }
     );
+    
     if(sessionStorage.length == 0){
       this._router.navigate(['login']);
-    }
-      /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
-
-      const dataDailySalesChart: any = {
-          labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
-          series: [
-              [12, 17, 7, 17, 23, 18, 38]
-          ]
-      };
-
-     const optionsDailySalesChart: any = {
-          lineSmooth: Chartist.Interpolation.cardinal({
-              tension: 0
-          }),
-          low: 0,
-          high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-          chartPadding: { top: 0, right: 0, bottom: 0, left: 0},
-      }
-
-      var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
-
-      this.startAnimationForLineChart(dailySalesChart);
-
-
-      /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
-
-      const dataCompletedTasksChart: any = {
-          labels: ['12p', '3p', '6p', '9p', '12p', '3a', '6a', '9a'],
-          series: [
-              [230, 750, 450, 300, 280, 240, 200, 190]
-          ]
-      };
-
-     const optionsCompletedTasksChart: any = {
-          lineSmooth: Chartist.Interpolation.cardinal({
-              tension: 0
-          }),
-          low: 0,
-          high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-          chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
-      }
-
-      var completedTasksChart = new Chartist.Line('#completedTasksChart', dataCompletedTasksChart, optionsCompletedTasksChart);
-
-      // start animation for the Completed Tasks Chart - Line Chart
-      this.startAnimationForLineChart(completedTasksChart);
-
-
-
-      /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
-
-      var datawebsiteViewsChart = {
-        labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
-        series: [
-          [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
-
-        ]
-      };
-      var optionswebsiteViewsChart = {
-          axisX: {
-              showGrid: false
-          },
-          low: 0,
-          high: 1000,
-          chartPadding: { top: 0, right: 5, bottom: 0, left: 0}
-      };
-      var responsiveOptions: any[] = [
-        ['screen and (max-width: 640px)', {
-          seriesBarDistance: 5,
-          axisX: {
-            labelInterpolationFnc: function (value) {
-              return value[0];
-            }
-          }
+    }    
+    let x:string[]=['alaoui mohamed','marwan hssisou'];
+    let y:number[]=[15,42];
+    this.employesForChart.forEach(element => {
+      x.push(element.nom);
+      y.push(element.nbrTaches);
+    });
+    console.log(this.employesForChart);
+    console.log(x);
+    console.log(y);
+    this.chartTpE = new Chart('nbTacheParEmploye', {
+      type: 'bar',
+      data: {
+        labels: x,
+        datasets: [{
+            label: '# of Votes',
+            data: y,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
         }]
-      ];
-      var websiteViewsChart = new Chartist.Bar('#websiteViewsChart', datawebsiteViewsChart, optionswebsiteViewsChart, responsiveOptions);
-
-      //start animation for the Emails Subscription Chart
-      this.startAnimationForBarChart(websiteViewsChart);
+      },
+      options: {
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [{
+            display: true
+          }],
+          yAxes: [{
+            display: true
+          }],
+        }
+      }
+    }); 
+    this.chartBpM = new Chart('beneficeParMois', {
+      type: 'line',
+      data: {
+        labels: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin','uillet',   'août',   'septembre','octobre', 'novembre', 'décembre'],
+        datasets: [{
+            label: '# of Votes',
+            data: [1200, 1900, 3000, 5500, 2300, 3020, 9050, 5800, 2300, 2100, 900, 500],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+      },
+      options: {
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [{
+            display: true
+          }],
+          yAxes: [{
+            display: true
+          }],
+        }
+      }
+    });
+    this.chartBpP = new Chart('beneficeParProjet', {
+      type: 'bar',
+      data: {
+        labels: ['assainissement', 'baladia', 'etc'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+      },
+      options: {
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [{
+            display: true
+          }],
+          yAxes: [{
+            display: true
+          }],
+        }
+      }
+    });
   }
 
 }

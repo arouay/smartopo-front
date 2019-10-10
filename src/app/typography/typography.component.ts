@@ -22,6 +22,7 @@ export class TypographyComponent implements OnInit {
   avancements:number=0;
   nbConcernedTaches:number=1; //for division in case 0  
   specificRecettes:Recette[]=[];
+  montantAtteint:number=0;
 
   constructor(private _router:Router,private projetService:ProjetService, private _phaseService:PhaseService, private _tacheService:TacheService, private _recetteService:RecetteService) { }
 
@@ -50,12 +51,13 @@ export class TypographyComponent implements OnInit {
         response.forEach(element => {
           if(element.projet.id == this.projet.id){
             this.specificRecettes.push(element);
+            this.montantAtteint += element.montant;
           }
         });                
       }, (error)=>{
         console.log(error);
       }
-    );
+    );        
   }
   delete(){
     if(confirm("Etes-vous sur de vouloir supprimer le projet ? ( Cette opération est irréversible ! )")){
