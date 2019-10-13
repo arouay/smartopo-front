@@ -30,7 +30,7 @@ export class TacheService {
     return this._http.post(this.baseUrl+'/taches/new', JSON.stringify(tache), this.options).map((response:Response)=>response.json()).catch(this.errorHandler);
   }
   updateTache(tache:Tache){
-    return this._http.post(this.baseUrl+'/taches/update', JSON.stringify(tache), this.options).map((response:Response)=>response.json()).catch(this.errorHandler);
+    return this._http.put(this.baseUrl+'/taches/update', JSON.stringify(tache), this.options).map((response:Response)=>response.json()).catch(this.errorHandler);
   }
   deleteTache(id:number){
     return this._http.delete(this.baseUrl+'/taches/delete/'+id,this.options).map((response:Response)=>response.json()).catch(this.errorHandler);

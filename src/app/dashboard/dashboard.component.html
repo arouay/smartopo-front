@@ -51,7 +51,7 @@
                   </div>
                   <div class="card-footer">
                       <div class="stats">
-                          <i class="material-icons">priority_high</i> Somme des restes
+                          <i class="material-icons">priority_high</i> Avec un total des charges de &nbsp;<strong>{{ totalCharges }} DHs</strong>                        
                       </div>
                   </div>
               </div>
@@ -67,18 +67,19 @@
                   </div>
                   <div class="card-footer">                      
                       <div class="stats">
-                            <a href="" >Détails des employés</a>
+                            <i (click)="goToEmployes()" style="cursor: pointer;font-size: 20px">Détails des employés ...</i>
                     </div>
                   </div>
               </div>
           </div>
+          
       </div>
       <div class="row">
             <div class="col-lg-6 col-md-3">
                     <div class="card">
                         <div class="card-header card-header-warning">
-                            <h4 class="card-title">Le nombre des tâches réalisées par chaque employé</h4>
-                            <p class="card-category">L'employé étoile: --</p>
+                            <h4 class="card-title">Le nombre des tâches réalisées par chaque employé</h4>                            
+                            <p class="card-category"><strong>Nombre des tâches -- Somme des dépenses x 1000DHs &nbsp;<button class="btn btn-danger" (click)="calculerDepenses()">Calculer</button></strong></p>
                         </div>
                         <div class="card-body table-responsive">
                                 <canvas id="nbTacheParEmploye">{{ chartTpE }}</canvas>
@@ -89,7 +90,8 @@
                         <div class="card">
                             <div class="card-header card-header-warning">
                                 <h4 class="card-title">Le bénéfice par projet</h4>  
-                                <p class="card-category">Le projet étoile: --</p>                          
+                                <p class="card-category"><br></p> 
+                                <p class="card-category">Estimé: Gauche -- Réel: Droite</p>                          
                             </div>
                             <div class="card-body table-responsive">
                                     <canvas id="beneficeParProjet">{{ chartBpP }}</canvas>
@@ -101,7 +103,8 @@
             <div class="col-lg-12 col-md-3">
                     <div class="card">
                         <div class="card-header card-header-warning">
-                            <h4 class="card-title">Le bénéfice par mois</h4>                            
+                            <h4 class="card-title">Le bénéfice par mois</h4> 
+                            <p class="card-category">Estimé: Rouge -- Réel: Bleu</p>                            
                         </div>
                         <div class="card-body table-responsive">
                                 <canvas id="beneficeParMois">{{ chartBpM }}</canvas>
