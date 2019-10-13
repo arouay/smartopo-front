@@ -15,10 +15,8 @@ export class CalendarComponent {
 
   calendarVisible = true;
   calendarPlugins = [dayGridPlugin, timeGrigPlugin, interactionPlugin];
-  calendarWeekends = true;
-  calendarEvents: EventInput[] = [
-    { title: 'Event Now', start: new Date() }
-  ];
+  calendarWeekends = false;
+  calendarEvents: EventInput[] = [];
 
   toggleVisible() {
     this.calendarVisible = !this.calendarVisible;
@@ -32,15 +30,26 @@ export class CalendarComponent {
     let calendarApi = this.calendarComponent.getApi();
     calendarApi.gotoDate('2000-01-01'); // call a method on the Calendar object
   }
-
-  handleDateClick(arg) {
-    if (confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
-      this.calendarEvents = this.calendarEvents.concat({ // add new event data. must create new array
-        title: 'New Event',
+  handleEventClick(arg){    
+    if(confirm("Etes-vous sur de vouloir supprimer l'evenemt ?")){
+      this.calendarEvents.forEach(element => {
+        if(element.title == arg.event.title){        
+          this.calendarEvents.splice(this.calendarEvents.indexOf(element),1);                     
+          console.log(this.calendarEvents);         
+        }      
+      });        
+    }        
+    
+  }
+  handleDateClick(arg) {    
+    let text:string = prompt("entrer la description de l'evenemt ");
+    if(text != null){
+      this.calendarEvents = this.calendarEvents.concat({
+        title: text,
         start: arg.date,
         allDay: arg.allDay
       })
     }
+    
   }
-
 }
